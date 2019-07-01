@@ -35,7 +35,7 @@ class Dataset_CRNN(data.Dataset):
         self.data_path = data_path
         self.vid_folders = vid_folders
         self.vid_labels = vid_labels
-        self.transfrom = transform
+        self.transform = transform
         self.frames = frames
 
 
@@ -68,8 +68,8 @@ class Dataset_CRNN(data.Dataset):
         X = self.read_images(self.data_path, vid)
         y = torch.LongTensor([self.vid_labels[index]])
 
-        print(X.shape)
-        print(y)
+        #print(X.shape)
+        #print(y)
 
         return X, y
 

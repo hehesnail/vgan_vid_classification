@@ -13,9 +13,9 @@ class BaseOptions():
         parser.add_argument('--checkpoints_dir', type=str, default='./checkpoints', help='models are saved here')
         #parser.add_argument('--gpu_ids', type=str, default='0', help='gpu ids: 0; 1; 0,1')
         parser.add_argument('--classes', type=int, default=101, help='# classes of the dataset')
+        parser.add_argument('--use_gan', type=bool, default=True, help="use gan pre-training")
 
         #model parameters
-        #TODO
 
         self.initialized=True
         return parser
@@ -87,7 +87,8 @@ class TrainOptions(BaseOptions):
         parser.add_argument('--lr', type=float, default=0.0002, help='initial learning rate')
         parser.add_argument('--train_id', type=int, default=1, help='The txt index for loading train videos')
         parser.add_argument('--batch_size', type=int, default=40, help='Batch size')
-        parser.add_argumanet('--log_interval', type=int, default=10, help='frequency of displaying the log information')
+        parser.add_argument('--log_interval', type=int, default=1, help='frequency of displaying the log information')
+        parser.add_argument('--gan_iter', type=int, default=50, help='# of iter of gan pretraining')
 
         self.isTrain = True
         return parser
